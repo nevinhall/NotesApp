@@ -1,5 +1,6 @@
-const fs = require('fs')
+const add = require('./utils.js')
 
 
-//fs.writeFileSync('notes.txt', 'This file was cretaed by Node.js!')
-fs.appendFileSync('notes.txt', 'challenge complete')
+const sum = add(4, -2)
+console.log(sum)
+
