@@ -1,6 +1,7 @@
-const add = require('./utils.js')
+const validator = require('validator')
+const getNotes = require('./notes.js')
 
+const msg = getNotes()
 
-const sum = add(4, -2)
-console.log(sum)
-
+console.log(msg)
+console.log(validator.isEmail('nevinexample@gmail.com'))
