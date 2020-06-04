@@ -1,4 +1,5 @@
 const fs = require('fs')
+const chalk = require('chalk')
 
 
 const getNotes = function(){
@@ -22,13 +23,32 @@ const addNote = function(tile, body){
 
     }else
         console.log('Note title taken')
+}
+
+const removeNote = function (title) {
+    console.log('removing ' + title)
+    const notes = loadNotes()
+    const uniqueNotes  = notes.filter(function(singualrNote){
+        return  singualrNote.title !== title
+    })
+
+    if (uniqueNotes.length === notes.length) {
+        console.log(chalk.red('Failed to remove note, note doesnt exist'))
+    }else
+        console.log(chalk.green('success, note removed'))
+        saveNotes(uniqueNotes)
+
 
 
 
 }
+
+
 const saveNotes = function (notes) {
     const dataJson = JSON.stringify(notes)
+
     fs.writeFileSync('notes.json',dataJson)
+
 
 }
 
@@ -46,5 +66,6 @@ const loadNotes = function(){
 }
 module.exports = {
     getNotes: getNotes,
-    addNote: addNote
+    addNote: addNote,
+    removeNote: removeNote
 }
