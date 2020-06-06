@@ -13,6 +13,8 @@ const readNotes =  (title) => {
 
 }
 
+debugger
+
 const addNote = (tile, body) => {
     const notes = loadNotes()
     const duplicateNote = notes.find((singualrNote) => singualrNote.title === tile)
